@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Csigaverseny_ErdelyiPeter
 {
@@ -20,10 +21,27 @@ namespace Csigaverseny_ErdelyiPeter
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer idozito;
+        int poz1 = new int();
+        int poz2 = new int();
+        int poz3 = new int();
         public MainWindow()
         {
             InitializeComponent();
             ujFutamGomb.IsEnabled = false;
+            idozito = new DispatcherTimer();
+            idozito.Interval = TimeSpan.FromSeconds(1);
+            idozito.Tick += new EventHandler(Mozgas);
+        }
+
+        private void Mozgas(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void startGomb_Click(object sender, RoutedEventArgs e)
+        {
+            idozito.Start();
         }
     }
 }

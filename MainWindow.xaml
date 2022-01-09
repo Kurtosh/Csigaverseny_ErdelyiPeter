@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Csigaverseny_ErdelyiPeter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
-        
+        <Rectangle x:Name="elsoVonal" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="772" Margin="10,120,0,0"/>
+        <Rectangle x:Name="masodikVonal" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>
+        <Rectangle x:Name="harmadikVonal" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,320,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>
+        <Image x:Name="csiga1" HorizontalAlignment="Left" Height="96" Margin="12,123,0,0" VerticalAlignment="Top" Width="98" Source="csiga1.PNG" Stretch="Fill" RenderTransformOrigin="0.5,0.6">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="csiga2" HorizontalAlignment="Left" Height="90" Margin="10,225,0,0" VerticalAlignment="Top" Width="100" Source="csiga2.jpg" Stretch="Fill"/>
+        <Image x:Name="csiga3" HorizontalAlignment="Left" Height="100" Margin="10,320,0,0" VerticalAlignment="Top" Width="100" Source="csiga3.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="startGomb" Content="Start" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="117" Height="42"/>
+        <Button x:Name="ujFutamGomb" Content="Új futam" HorizontalAlignment="Left" Margin="164,44,0,0" VerticalAlignment="Top" Width="117" Height="42"/>
+        <Button x:Name="ujBajnoksagGomb" Content="Új bajnokság" HorizontalAlignment="Left" Margin="318,44,0,0" VerticalAlignment="Top" Width="117" Height="42"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="300" Margin="110,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="9"/>
+        <Rectangle x:Name="celVonal" Fill="Black" HorizontalAlignment="Left" Height="300" Margin="772,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
+
     </Grid>
 </Window>

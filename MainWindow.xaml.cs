@@ -22,21 +22,28 @@ namespace Csigaverseny_ErdelyiPeter
     public partial class MainWindow : Window
     {
         DispatcherTimer idozito;
-        int poz1 = new int();
-        int poz2 = new int();
-        int poz3 = new int();
+        int poz1 = 0;
+        int poz2 = 0;
+        int poz3 = 0;
         public MainWindow()
         {
             InitializeComponent();
             ujFutamGomb.IsEnabled = false;
             idozito = new DispatcherTimer();
-            idozito.Interval = TimeSpan.FromSeconds(1);
+            idozito.Interval = TimeSpan.FromSeconds(0.1);
             idozito.Tick += new EventHandler(Mozgas);
         }
 
         private void Mozgas(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            poz1 += rnd.Next(30, 51);
+            poz2 += rnd.Next(30, 51);
+            poz3 += rnd.Next(30, 51);
+            csiga1.Margin = new Thickness(poz1, 120, 0, 0);
+            csiga2.Margin = new Thickness(poz2, 220, 0, 0);
+            csiga3.Margin = new Thickness(poz3, 320, 0, 0);
+            
         }
 
         private void startGomb_Click(object sender, RoutedEventArgs e)

@@ -30,25 +30,43 @@ namespace Csigaverseny_ErdelyiPeter
             InitializeComponent();
             ujFutamGomb.IsEnabled = false;
             idozito = new DispatcherTimer();
-            idozito.Interval = TimeSpan.FromSeconds(0.1);
+            idozito.Interval = TimeSpan.FromSeconds(0.5);
             idozito.Tick += new EventHandler(Mozgas);
         }
 
         private void Mozgas(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            poz1 += rnd.Next(30, 51);
-            poz2 += rnd.Next(30, 51);
-            poz3 += rnd.Next(30, 51);
-            csiga1.Margin = new Thickness(poz1, 120, 0, 0);
-            csiga2.Margin = new Thickness(poz2, 220, 0, 0);
-            csiga3.Margin = new Thickness(poz3, 320, 0, 0);
-            
+                poz1 += rnd.Next(30, 51);
+                csiga1.Margin = new Thickness(poz1, 120, 0, 0);
+            if (poz1 > 680)
+            {
+                csiga1.Margin = new Thickness(680, 120, 0, 0);
+            }
+                poz2 += rnd.Next(30, 51);
+                csiga2.Margin = new Thickness(poz2, 220, 0, 0);
+            if (poz2 > 680)
+            {
+                csiga2.Margin = new Thickness(680, 220, 0, 0);
+            }
+                poz3 += rnd.Next(30, 51);
+                csiga3.Margin = new Thickness(poz3, 320, 0, 0);
+            if (poz3 > 680)
+            {
+                csiga3.Margin = new Thickness(680, 320, 0, 0);
+            }
+            if (csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin == new Thickness(680, 220, 0, 0) && csiga3.Margin == new Thickness(680, 320, 0, 0))
+            {
+                idozito.Stop();
+            }
         }
 
         private void startGomb_Click(object sender, RoutedEventArgs e)
         {
             idozito.Start();
+            startGomb.IsEnabled = false;
+            ujFutamGomb.IsEnabled = false;
+            ujBajnoksagGomb.IsEnabled = false;
         }
     }
 }

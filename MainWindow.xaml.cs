@@ -32,12 +32,15 @@ namespace Csigaverseny_ErdelyiPeter
             idozito = new DispatcherTimer();
             idozito.Interval = TimeSpan.FromSeconds(0.5);
             idozito.Tick += new EventHandler(Mozgas);
+            elsoVonal.Fill = Brushes.Gray;
+            masodikVonal.Fill = Brushes.Gray;
+            harmadikVonal.Fill = Brushes.Gray;
         }
 
         private void Mozgas(object sender, EventArgs e)
         {
             Random rnd = new Random();
-                poz1 += rnd.Next(30, 51);
+                poz1 += rnd.Next(30, 151);
                 csiga1.Margin = new Thickness(poz1, 120, 0, 0);
             if (poz1 > 680)
             {
@@ -58,6 +61,12 @@ namespace Csigaverseny_ErdelyiPeter
             if (csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin == new Thickness(680, 220, 0, 0) && csiga3.Margin == new Thickness(680, 320, 0, 0))
             {
                 idozito.Stop();
+                ujFutamGomb.IsEnabled = true;
+                ujBajnoksagGomb.IsEnabled = true;
+            }
+            if (csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin != new Thickness(680, 220, 0, 0) && csiga3.Margin != new Thickness(680, 320, 0, 0))
+            {
+                elsoVonal.Fill = Brushes.Yellow;
             }
         }
 
@@ -67,6 +76,17 @@ namespace Csigaverseny_ErdelyiPeter
             startGomb.IsEnabled = false;
             ujFutamGomb.IsEnabled = false;
             ujBajnoksagGomb.IsEnabled = false;
+        }
+
+        private void ujFutamGomb_Click(object sender, RoutedEventArgs e)
+        {
+            csiga1.Margin = new Thickness(12, 120, 0, 0);
+            csiga2.Margin = new Thickness(12, 220, 0, 0);
+            csiga3.Margin = new Thickness(12, 320, 0, 0);
+            ujFutamGomb.IsEnabled = false;
+            elsoVonal.Fill = Brushes.Gray;
+            masodikVonal.Fill = Brushes.Gray;
+            harmadikVonal.Fill = Brushes.Gray;
         }
     }
 }

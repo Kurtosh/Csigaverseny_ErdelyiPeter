@@ -23,6 +23,7 @@ namespace Csigaverseny_ErdelyiPeter
         public MainWindow()
         {
             InitializeComponent();
+            ujFutamGomb.IsEnabled = false;
         }
     }
 }

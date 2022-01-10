@@ -30,7 +30,7 @@ namespace Csigaverseny_ErdelyiPeter
             InitializeComponent();
             ujFutamGomb.IsEnabled = false;
             idozito = new DispatcherTimer();
-            idozito.Interval = TimeSpan.FromSeconds(0.5);
+            idozito.Interval = TimeSpan.FromSeconds(1);
             idozito.Tick += new EventHandler(Mozgas);
             elsoVonal.Fill = Brushes.Gray;
             masodikVonal.Fill = Brushes.Gray;
@@ -40,19 +40,19 @@ namespace Csigaverseny_ErdelyiPeter
         private void Mozgas(object sender, EventArgs e)
         {
             Random rnd = new Random();
-                poz1 += rnd.Next(30, 151);
+                poz1 += rnd.Next(20, 301);
                 csiga1.Margin = new Thickness(poz1, 120, 0, 0);
             if (poz1 > 680)
             {
                 csiga1.Margin = new Thickness(680, 120, 0, 0);
             }
-                poz2 += rnd.Next(30, 51);
+                poz2 += rnd.Next(20, 301);
                 csiga2.Margin = new Thickness(poz2, 220, 0, 0);
             if (poz2 > 680)
             {
                 csiga2.Margin = new Thickness(680, 220, 0, 0);
             }
-                poz3 += rnd.Next(30, 51);
+                poz3 += rnd.Next(20, 301);
                 csiga3.Margin = new Thickness(poz3, 320, 0, 0);
             if (poz3 > 680)
             {
@@ -63,11 +63,60 @@ namespace Csigaverseny_ErdelyiPeter
                 idozito.Stop();
                 ujFutamGomb.IsEnabled = true;
                 ujBajnoksagGomb.IsEnabled = true;
+                poz1 = 0;
+                poz2 = 0;
+                poz3 = 0;
             }
             if (csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin != new Thickness(680, 220, 0, 0) && csiga3.Margin != new Thickness(680, 320, 0, 0))
             {
                 elsoVonal.Fill = Brushes.Yellow;
             }
+            else
+            {
+                if ((masodikVonal.Fill == Brushes.Yellow && csiga1.Margin == new Thickness(680, 120, 0, 0)) || (harmadikVonal.Fill == Brushes.Yellow && csiga1.Margin == new Thickness(680, 120, 0, 0)))
+                {
+                    elsoVonal.Fill = Brushes.Silver;
+                }
+                    if ((masodikVonal.Fill == Brushes.Yellow && harmadikVonal.Fill == Brushes.Silver && csiga1.Margin == new Thickness(680, 120, 0, 0)) || (harmadikVonal.Fill == Brushes.Yellow && masodikVonal.Fill == Brushes.Silver && csiga1.Margin == new Thickness(680, 120, 0, 0)))
+                    {
+                        elsoVonal.Fill = Brushes.Brown;
+                    }
+            }
+            if (csiga2.Margin == new Thickness(680, 220, 0, 0) && csiga1.Margin != new Thickness(680, 120, 0, 0) && csiga3.Margin != new Thickness(680, 320, 0, 0))
+            {
+                masodikVonal.Fill = Brushes.Yellow;
+            }
+            else
+            {
+                if ((elsoVonal.Fill == Brushes.Yellow && csiga2.Margin == new Thickness(680, 220, 0, 0)) || (harmadikVonal.Fill == Brushes.Yellow && csiga2.Margin == new Thickness(680, 220, 0, 0)))
+                {
+                    masodikVonal.Fill = Brushes.Silver;
+                }
+                if ((elsoVonal.Fill == Brushes.Yellow && harmadikVonal.Fill == Brushes.Silver && csiga2.Margin == new Thickness(680, 220, 0, 0)) || (harmadikVonal.Fill == Brushes.Yellow && elsoVonal.Fill == Brushes.Silver && csiga2.Margin == new Thickness(680, 220, 0, 0)))
+                {
+                    masodikVonal.Fill = Brushes.Brown;
+                }
+            }
+            if (csiga3.Margin == new Thickness(680, 320, 0, 0) && csiga2.Margin != new Thickness(680, 220, 0, 0) && csiga1.Margin != new Thickness(680, 120, 0, 0))
+            {
+                harmadikVonal.Fill = Brushes.Yellow;
+            }
+            else
+            {
+                if ((masodikVonal.Fill == Brushes.Yellow && csiga3.Margin == new Thickness(680, 320, 0, 0)) || (elsoVonal.Fill == Brushes.Yellow && csiga3.Margin == new Thickness(680, 320, 0, 0)))
+                {
+                    harmadikVonal.Fill = Brushes.Silver;
+                }
+                if ((masodikVonal.Fill == Brushes.Yellow && elsoVonal.Fill == Brushes.Silver && csiga3.Margin == new Thickness(680, 320, 0, 0)) || (elsoVonal.Fill == Brushes.Yellow && masodikVonal.Fill == Brushes.Silver && csiga3.Margin == new Thickness(680, 320, 0, 0)))
+                {
+                    harmadikVonal.Fill = Brushes.Brown;
+                }
+            }
+            if (elsoVonal.Fill == Brushes.Gray && masodikVonal.Fill == Brushes.Gray && harmadikVonal.Fill == Brushes.Gray && csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin == new Thickness(680, 220, 0, 0) && csiga3.Margin == new Thickness(680, 320, 0, 0))
+            {
+                MessageBox.Show("Döntetlen történt. A futam érvénytelen.");
+            }
+
         }
 
         private void startGomb_Click(object sender, RoutedEventArgs e)
@@ -84,6 +133,8 @@ namespace Csigaverseny_ErdelyiPeter
             csiga2.Margin = new Thickness(12, 220, 0, 0);
             csiga3.Margin = new Thickness(12, 320, 0, 0);
             ujFutamGomb.IsEnabled = false;
+            startGomb.IsEnabled = true;
+            ujBajnoksagGomb.IsEnabled = true;
             elsoVonal.Fill = Brushes.Gray;
             masodikVonal.Fill = Brushes.Gray;
             harmadikVonal.Fill = Brushes.Gray;

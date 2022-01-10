@@ -25,10 +25,13 @@ namespace Csigaverseny_ErdelyiPeter
         int poz1 = 0;
         int poz2 = 0;
         int poz3 = 0;
+        int[] helyezesek = new int[11];
         public MainWindow()
         {
             InitializeComponent();
             ujFutamGomb.IsEnabled = false;
+            ujBajnoksagGomb.IsEnabled = false;
+            bajnoksagMegjelenitese.IsEnabled = false;
             idozito = new DispatcherTimer();
             idozito.Interval = TimeSpan.FromSeconds(1);
             idozito.Tick += new EventHandler(Mozgas);
@@ -62,7 +65,6 @@ namespace Csigaverseny_ErdelyiPeter
             {
                 idozito.Stop();
                 ujFutamGomb.IsEnabled = true;
-                ujBajnoksagGomb.IsEnabled = true;
                 poz1 = 0;
                 poz2 = 0;
                 poz3 = 0;
@@ -125,6 +127,7 @@ namespace Csigaverseny_ErdelyiPeter
             startGomb.IsEnabled = false;
             ujFutamGomb.IsEnabled = false;
             ujBajnoksagGomb.IsEnabled = false;
+            bajnoksagMegjelenitese.IsEnabled = false;
         }
 
         private void ujFutamGomb_Click(object sender, RoutedEventArgs e)
@@ -135,6 +138,7 @@ namespace Csigaverseny_ErdelyiPeter
             ujFutamGomb.IsEnabled = false;
             startGomb.IsEnabled = true;
             ujBajnoksagGomb.IsEnabled = true;
+            bajnoksagMegjelenitese.IsEnabled = true;
             elsoVonal.Fill = Brushes.Gray;
             masodikVonal.Fill = Brushes.Gray;
             harmadikVonal.Fill = Brushes.Gray;

@@ -197,5 +197,16 @@ namespace Csigaverseny_ErdelyiPeter
         {
             MessageBox.Show($"Csiga1: {helyezesek[1]} db 1. helyezés, {helyezesek[2]} db 2. helyezés és {helyezesek[3]} db 3. helyezés. Összesen {helyezesek[1] * 3 + helyezesek[2] * 2 + helyezesek[3]} pontja van." + "\n" + $"Csiga2: {helyezesek[4]} db 1. helyezés, {helyezesek[5]} db 2. helyezés és {helyezesek[6]} db 3. helyezés. Összesen {helyezesek[4] * 3 + helyezesek[5] * 2 + helyezesek[6]} pontja van." + "\n" + $"Csiga3: {helyezesek[7]} db 1. helyezés, {helyezesek[8]} db 2. helyezés és {helyezesek[9]} db 3. helyezés. Összesen {helyezesek[7] * 3 + helyezesek[8] * 2 + helyezesek[9]} pontja van.");
         }
+
+        private void ujBajnoksagGomb_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Az előző bajnokság eredménye:" + "\n" + $"Csiga1: {helyezesek[1]} db 1. helyezés, {helyezesek[2]} db 2. helyezés és {helyezesek[3]} db 3. helyezés. Összesen {helyezesek[1] * 3 + helyezesek[2] * 2 + helyezesek[3]} pontja van." + "\n" + $"Csiga2: {helyezesek[4]} db 1. helyezés, {helyezesek[5]} db 2. helyezés és {helyezesek[6]} db 3. helyezés. Összesen {helyezesek[4] * 3 + helyezesek[5] * 2 + helyezesek[6]} pontja van." + "\n" + $"Csiga3: {helyezesek[7]} db 1. helyezés, {helyezesek[8]} db 2. helyezés és {helyezesek[9]} db 3. helyezés. Összesen {helyezesek[7] * 3 + helyezesek[8] * 2 + helyezesek[9]} pontja van.");
+            for (int i = 0; i < helyezesek.Length; i++)
+            {
+                helyezesek[i] = 0;
+            }
+            ujBajnoksagGomb.IsEnabled = false;
+            bajnoksagMegjelenitese.IsEnabled = false;
+        }
     }
 }

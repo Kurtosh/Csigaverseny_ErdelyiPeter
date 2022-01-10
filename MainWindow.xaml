@@ -45,7 +45,7 @@
         <Button x:Name="ujBajnoksagGomb" Content="Új bajnokság" HorizontalAlignment="Left" Margin="318,44,0,0" VerticalAlignment="Top" Width="117" Height="42"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="300" Margin="110,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="9"/>
         <Rectangle x:Name="celVonal" Fill="Black" HorizontalAlignment="Left" Height="300" Margin="772,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
-        <Button x:Name="bajnoksagMegjelenitese" Content="Bajnokság megjelenítése" HorizontalAlignment="Left" Margin="470,44,0,0" VerticalAlignment="Top" Width="163" Height="42"/>
+        <Button x:Name="bajnoksagMegjelenitese" Content="Bajnokság megjelenítése" HorizontalAlignment="Left" Margin="470,44,0,0" VerticalAlignment="Top" Width="163" Height="42" Click="bajnoksagMegjelenitese_Click"/>
 
     </Grid>
 </Window>

@@ -25,7 +25,7 @@ namespace Csigaverseny_ErdelyiPeter
         int poz1 = 0;
         int poz2 = 0;
         int poz3 = 0;
-        int[] helyezesek = new int[11];
+        int[] helyezesek = new int[10];
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +38,10 @@ namespace Csigaverseny_ErdelyiPeter
             elsoVonal.Fill = Brushes.Gray;
             masodikVonal.Fill = Brushes.Gray;
             harmadikVonal.Fill = Brushes.Gray;
+            for (int i = 0; i < helyezesek.Length; i++)
+            {
+                helyezesek[i] = 0;
+            }
         }
 
         private void Mozgas(object sender, EventArgs e)
@@ -68,6 +72,51 @@ namespace Csigaverseny_ErdelyiPeter
                 poz1 = 0;
                 poz2 = 0;
                 poz3 = 0;
+                if (elsoVonal.Fill == Brushes.Yellow)
+                {
+                    helyezesek[1]++;
+                }
+                else
+                {
+                    if (elsoVonal.Fill == Brushes.Silver)
+                    {
+                        helyezesek[2]++;
+                    }
+                    else
+                    {
+                            helyezesek[3]++;
+                    }
+                }
+                if (masodikVonal.Fill == Brushes.Yellow)
+                {
+                    helyezesek[4]++;
+                }
+                else
+                {
+                    if (masodikVonal.Fill == Brushes.Silver)
+                    {
+                        helyezesek[5]++;
+                    }
+                    else
+                    {
+                            helyezesek[6]++;
+                    }
+                }
+                if (harmadikVonal.Fill == Brushes.Yellow)
+                {
+                    helyezesek[7]++;
+                }
+                else
+                {
+                    if (harmadikVonal.Fill == Brushes.Silver)
+                    {
+                        helyezesek[8]++;
+                    }
+                    else
+                    {
+                            helyezesek[9]++;
+                    }
+                }
             }
             if (csiga1.Margin == new Thickness(680, 120, 0, 0) && csiga2.Margin != new Thickness(680, 220, 0, 0) && csiga3.Margin != new Thickness(680, 320, 0, 0))
             {
@@ -142,6 +191,11 @@ namespace Csigaverseny_ErdelyiPeter
             elsoVonal.Fill = Brushes.Gray;
             masodikVonal.Fill = Brushes.Gray;
             harmadikVonal.Fill = Brushes.Gray;
+        }
+
+        private void bajnoksagMegjelenitese_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Csiga1: {helyezesek[1]} db 1. helyezés, {helyezesek[2]} db 2. helyezés és {helyezesek[3]} db 3. helyezés. Összesen {helyezesek[1] * 3 + helyezesek[2] * 2 + helyezesek[3]} pontja van." + "\n" + $"Csiga2: {helyezesek[4]} db 1. helyezés, {helyezesek[5]} db 2. helyezés és {helyezesek[6]} db 3. helyezés. Összesen {helyezesek[4] * 3 + helyezesek[5] * 2 + helyezesek[6]} pontja van." + "\n" + $"Csiga3: {helyezesek[7]} db 1. helyezés, {helyezesek[8]} db 2. helyezés és {helyezesek[9]} db 3. helyezés. Összesen {helyezesek[7] * 3 + helyezesek[8] * 2 + helyezesek[9]} pontja van.");
         }
     }
 }
